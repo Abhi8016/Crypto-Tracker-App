@@ -84,7 +84,10 @@
     height: 40px;
   }
   .list-row {
-    margin: 0;
-    padding: 0;
+    margin-right: -7px;
+    margin-left: -7px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    padding: 0 5px 0 2px;
   }
 }
