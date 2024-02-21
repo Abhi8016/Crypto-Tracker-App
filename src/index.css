@@ -61,5 +61,23 @@ img {
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-} 
- /* disable img drag */
+}
+/* disable img drag */
+.grey-wrapper {
+  display: block;
+  /* width: 90%; */
+  background-color: var(--darkgrey);
+  margin: 1rem;
+  padding: 0.7rem 1.5rem 0.7rem 1.5rem;
+  border-radius: 0.8rem;
+}
+.grey-wrapper-chart {
+  display: block;
+  /* width: 90%; */
+  background-color: var(--darkgrey);
+  margin: 1rem;
+  padding: 0.7rem 1.5rem 0.7rem 1.5rem;
+  border-radius: 0.8rem;
+  width: auto;
+  height: 100vh; 
+}
