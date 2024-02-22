@@ -30,25 +30,11 @@ const CoinPage = () => {
 
   async function getData() {
     const data = await getCoinData(id);
-
     if (data) {
       coinObject(setCoinData, data);
       const prices = await getCoinPrices(id, days, priceType);
       if (prices.length > 0) {
-        setChartData({
-          labels: prices.map((price) => convertDate(price[0])),
-          datasets: [
-            {
-              data: prices.map((price) => price[1]),
-              borderColor: "#3a80e9",
-              borderWidth: 2,
-              fill: true,
-              tension: 0.15,
-              backgroundColor: "rgba(58, 128, 233, 0.1)",
-              pointRadius: 0,
-            },
-          ],
-        });
+        settingChartData(setChartData, prices);
         setIsLoading(false);
       }
     }
@@ -99,7 +85,7 @@ const CoinPage = () => {
               priceType={priceType}
               handlePriceTypeChange={handlePriceTypeChange}
             />
-            <LineChart chartData={chartData} priceType={priceType}/>
+            <LineChart chartData={chartData} priceType={priceType} />
           </div>
           <CoinInfo heading={coinData.name} desc={coinData.desc} />
         </>
