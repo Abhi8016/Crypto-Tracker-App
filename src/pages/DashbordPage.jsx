@@ -14,11 +14,13 @@ const DashbordPage = () => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+
   const handlePageChange = (event, value) => {
     setPage(value);
     let previousIndex = (value - 1) * 10;
     setPaginatedCoins(coins.slice(previousIndex, previousIndex + 10));
   };
+  
   const onSearchChange = (e) => {
     console.log(e.target.value);
     setSearch(e.target.value);

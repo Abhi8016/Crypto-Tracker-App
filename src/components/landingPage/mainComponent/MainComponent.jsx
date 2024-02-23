@@ -10,8 +10,8 @@ const MainComponent = () => {
       <div className="left-component">
         <motion.h1
           className="track-crypto-heading"
-          initial={{ opacity: 0, x: 70 }}
-          animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: 70 }}
+            animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
         >
           <span>Track Crypto</span>

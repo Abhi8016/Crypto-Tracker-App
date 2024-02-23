@@ -1,10 +1,19 @@
 .grid-container {
   width: 300px;
-  height: 300px;
+  height: 310px;
   background-color: var(--darkgrey);
   border: 2px solid var(--darkgrey);
   border-radius: 1rem;
   /* padding: 1rem; */
+}
+@media only screen and (max-width: 800px) {
+  .grid-container {
+    height: auto;
+  }
+  .fav-icon svg {
+    width: 30px;
+    height: 30px;
+  }
 }
 .grid-container:hover {
   border-color: var(--green);
@@ -19,7 +28,22 @@
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
-  margin: 1.5rem 1.5rem;
+  margin: 1rem 1rem;
+}
+.fav-icon-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.fav-icon {
+  padding: 1rem 1.5rem 0rem 0rem;
+}
+.fav-icon svg {
+  width: 50px;
+  height: 50px;
+}
+.fav-icon svg:hover{
+  color: var(--blue) !important;
 }
 .name-col {
   display: flex;

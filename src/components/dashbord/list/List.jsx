@@ -5,7 +5,39 @@ import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
 import { Tooltip } from "@mui/material";
 import { convertNumbers } from "../../../functions/convertnumbers";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { add, remove } from "../../../app/watchListSlice";
+import { toast } from "react-toastify";
+import StarsOutlinedIcon from "@mui/icons-material/StarsOutlined";
+import StarsIcon from "@mui/icons-material/Stars";
+
 const List = ({ coin }) => {
+  const dispatch = useDispatch();
+  const myList = useSelector((state) => state.watchList);
+
+  let currentObj = {};
+
+  myList.forEach((e) => {
+    if (e.id === coin?.id) {
+      currentObj = { ...e };
+    }
+  });
+
+  const handleFav = (e) => {
+    e.preventDefault();
+    if (currentObj.id === coin?.id) {
+      dispatch(remove(coin?.id));
+      toast.warning(
+        `you have removed ${coin?.name || coin?.title} from Watch List`
+      );
+    } else {
+      coin && dispatch(add({ ...coin }));
+      toast.success(
+        `you have added ${coin?.name || coin?.title} to Watch List`
+      );
+    }
+  };
+
   return (
     <Link to={`/coin/${coin.id}`}>
       <tr className="list-row">
@@ -79,6 +111,13 @@ const List = ({ coin }) => {
             </p>
           </td>
         </Tooltip>
+        <div className="fav-icon-list" onClick={handleFav}>
+          {currentObj.id == coin.id ? (
+            <StarsIcon style={{ color: "var(--green)" }} />
+          ) : (
+            <StarsOutlinedIcon />
+          )}
+        </div>
       </tr>
     </Link>
   );
