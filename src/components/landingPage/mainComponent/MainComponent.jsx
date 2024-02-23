@@ -4,14 +4,16 @@ import iphone from "../../../assets/phone 1.png";
 import gradient from "../../../assets/gradient 1.png";
 import Button from "../../common/button/Button";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { RWebShare } from "react-web-share";
 const MainComponent = () => {
   return (
     <div className="flex-info">
       <div className="left-component">
         <motion.h1
           className="track-crypto-heading"
-            initial={{ opacity: 0, x: 70 }}
-            animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: 70 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
         >
           <span>Track Crypto</span>
@@ -34,8 +36,19 @@ const MainComponent = () => {
           do so!
         </motion.p>
         <div className="btn-flex">
-          <Button text={"Dashbord"} />
-          <Button text={"Share"} outLined={true} />
+          <Link to="/dashboard">
+            <Button text={"Dashbord"} outLined={false} onClick={()=>{}}/>
+          </Link>
+          <RWebShare
+            data={{
+              text: "Track Crypto Real Time.",
+              url: "https://crypto-dashboard-jan.netlify.app",
+              title: "CryptoTracker.",
+            }}
+            onClick={() => toast.info("App Shared!")}
+          >
+            <Button text={"Share App"} outlined={true} />
+          </RWebShare>
         </div>
       </div>
       <div className="phone-container">
