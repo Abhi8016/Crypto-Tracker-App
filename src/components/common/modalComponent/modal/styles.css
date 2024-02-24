@@ -1,0 +1,27 @@
+.modal {
+  width: clamp(50%, 700px, 90%);
+  height: min(50%, 300px);
+
+  margin: 2rem;
+  padding: 0 2rem;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10000;
+}
+.gradient-m {
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(45, 88, 253, 1) 100%
+  );
+}
+.modal p {
+  text-align: justify;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--white);
+}

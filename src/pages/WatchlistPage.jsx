@@ -6,6 +6,7 @@ import Loader from "../components/common/loader/Loader";
 import { useSelector } from "react-redux";
 import noRes from "../assets/no-results.png";
 import { ToastContainer, toast } from "react-toastify";
+import Footer from "../components/common/footer/Footer";
 
 const WatchlistPage = () => {
   let myList = useSelector((state) => state.watchList);
@@ -21,13 +22,13 @@ const WatchlistPage = () => {
       {flag ? (
         <>
           <TabsComponents coins={myList} />
-          
         </>
       ) : (
         <div className="grey-wrapper-img">
           <img src={noRes} />
         </div>
       )}
+      <Footer />
     </div>
   );
 };

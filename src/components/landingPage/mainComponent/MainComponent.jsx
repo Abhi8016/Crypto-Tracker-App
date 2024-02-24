@@ -37,7 +37,7 @@ const MainComponent = () => {
         </motion.p>
         <div className="btn-flex">
           <Link to="/dashboard">
-            <Button text={"Dashbord"} outLined={false} onClick={()=>{}}/>
+            <Button text={"Dashbord"} outLined={false} />
           </Link>
           <RWebShare
             data={{
@@ -45,9 +45,8 @@ const MainComponent = () => {
               url: "https://crypto-dashboard-jan.netlify.app",
               title: "CryptoTracker.",
             }}
-            onClick={() => toast.info("App Shared!")}
           >
-            <Button text={"Share App"} outlined={true} />
+            <Button text={"Share App"} outLined={true} />
           </RWebShare>
         </div>
       </div>
