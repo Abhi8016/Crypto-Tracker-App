@@ -35,18 +35,14 @@ const DashbordPage = () => {
   console.log(coins.length);
   useEffect(() => {
     getData();
-    const myTimeout = setTimeout(() => {
-      if (isLoading) {
-        console.log("error");
-        setModalopen(true);
-      }
-    }, 4000);
-    return () => clearTimeout(myTimeout);
   }, []);
+
   const getData = async () => {
     const myCoins = await get100Coins();
+
     if (myCoins) {
       setCoins(myCoins);
+      // clearTimeout(myTimeout);
       setPaginatedCoins(myCoins?.slice(0, 10));
       filteredCoin = coins.filter(
         (item) =>
@@ -54,6 +50,10 @@ const DashbordPage = () => {
           item?.symbol?.toLowerCase().includes(search.toLowerCase())
       );
       setIsLoading(false);
+    } else {
+      console.log(isLoading);
+      console.log("error");
+      setModalopen(true);
     }
   };
 
@@ -63,9 +63,9 @@ const DashbordPage = () => {
         <Modal
           modalOpen={modalOpen}
           handleClose={close}
-          title={"429 error"}
-          text1={"You've exceeded the Rate Limit."}
-          text2={"Try again after sometime"}
+          title={"Error"}
+          text1={"You've exceeded the Rate Limit or something wrong happend"}
+          text2={"Try again after some time."}
         />
       )}
       <Header />

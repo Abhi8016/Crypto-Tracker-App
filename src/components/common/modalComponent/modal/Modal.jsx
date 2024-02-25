@@ -14,8 +14,8 @@ const Modal = ({ handleClose, text1, text2, title }) => {
       transition: {
         duration: 0.1,
         type: "spring",
-        dumping: 25,
-        stiffness: 500,
+        dumping: 2,
+        stiffness: 100,
       },
     },
     exit: { y: "100vh", opacity: 0 },

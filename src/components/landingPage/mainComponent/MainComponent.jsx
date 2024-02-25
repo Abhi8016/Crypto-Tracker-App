@@ -14,7 +14,7 @@ const MainComponent = () => {
           className="track-crypto-heading"
           initial={{ opacity: 0, x: 70 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.6 }}
         >
           <span>Track Crypto</span>
         </motion.h1>
@@ -22,7 +22,7 @@ const MainComponent = () => {
           className="real-time-heading"
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
         >
           Real Time.
         </motion.h1>
@@ -30,7 +30,7 @@ const MainComponent = () => {
           className="info-text"
           initial={{ opacity: 0, y: 70 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
         >
           Track crypto through a public api in real time. Visit the Dashbord to
           do so!
