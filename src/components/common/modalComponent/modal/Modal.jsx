@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Backdrop from "../backdrop/Backdrop";
 import "./styles.css";
-const Modal = ({ handleClose, text1, text2 }) => {
+const Modal = ({ handleClose, text1, text2, title }) => {
   const dropIn = {
     hidden: {
       y: "-100vh",
@@ -30,6 +30,7 @@ const Modal = ({ handleClose, text1, text2 }) => {
         animate="visible"
         exit="exit"
       >
+        <h2>{title}</h2>
         <p>{text1}</p>
         <p>{text2}</p>
       </motion.div>

@@ -8,7 +8,8 @@ export const getCoinData = (id) => {
       return response.data;
     })
     .catch((error) => {
-      console.log(error);
+      console.log(error.message);
+      // return error.message;
       // setIsLoading(false);
     });
   return myData;

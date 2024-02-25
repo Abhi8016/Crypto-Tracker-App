@@ -41,6 +41,7 @@
   }
   .navbar {
     padding: 1.5rem;
+    z-index: 1;
   }
   /* .link {
     font-size: 0.8rem;

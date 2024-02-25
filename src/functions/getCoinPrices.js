@@ -11,7 +11,8 @@ export const getCoinPrices = (id, days, priceType) => {
       return responce.data[priceType];
     })
     .catch((error) => {
-      console.log(error);
+      console.log(error.message);
+      // return error.message;
     });
   return prices;
 };

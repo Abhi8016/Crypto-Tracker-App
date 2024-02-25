@@ -12,10 +12,10 @@ import { ToastContainer } from "react-toastify";
 import Modal from "./components/common/modalComponent/modal/Modal";
 
 function App() {
-  const [modalOpen, setModalopen] = useState(true);
+  // const [modalOpen, setModalopen] = useState(true);
 
-  const close = () => setModalopen(false);
-  const open = () => setModalopen(true);
+  // const close = () => setModalopen(false);
+  // const open = () => setModalopen(true);
 
   const [mousePosition, setMousePosition] = useState({
     x: 0,
@@ -33,7 +33,7 @@ function App() {
     return () => {
       window.removeEventListener("mousemove", mouseMove);
     };
-    modalOpen ? close() : open();
+    // modalOpen ? close() : open();
   }, []);
 
   const variants = {
@@ -56,18 +56,19 @@ function App() {
         pauseOnHover={false}
         theme="dark"
       />
-      {modalOpen && (
+      {/* {modalOpen && (
         <Modal
           modalOpen={modalOpen}
           handleClose={close}
+          title={"Important"}
           text1={
             "Please note that the API has a low rate limit. Be careful not to exceed it, as doing so can lead to temporary restrictions or denial of access. Manage your requests wisely to avoid disruptions to your applications."
           }
           text2={
-            "You can click anywhere outside the modal to close it. Thank you for your cooperation."
+            "You can click anywhere outside this window to close it. Thank you for your cooperation."
           }
         />
-      )}
+      )} */}
       <div className="motion-flex">
         <motion.div className="cursor" variants={variants} animate="default" />
         <motion.div

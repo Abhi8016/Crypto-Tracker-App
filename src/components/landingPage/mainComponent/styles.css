@@ -92,6 +92,7 @@
     flex-direction: column;
   }
   .phone-container {
+    height: 430px;
     display: block;
     margin: auto;
     margin-top: 3rem;

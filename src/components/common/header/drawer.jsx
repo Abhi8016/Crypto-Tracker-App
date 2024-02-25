@@ -9,7 +9,7 @@ export default function TemporaryDrawer() {
   const [open, setOpen] = useState(false);
   return (
     <div>
-      <IconButton onClick={() => setOpen(true)}>
+      <IconButton onClick={() => setOpen(!open)}>
         <MenuRoundedIcon className="link" />
       </IconButton>
       <Drawer anchor={"right"} open={open} onClose={() => setOpen(false)}>

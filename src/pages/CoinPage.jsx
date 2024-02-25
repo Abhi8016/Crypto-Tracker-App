@@ -14,13 +14,13 @@ import { convertDate } from "../functions/convertDate";
 import SelectDays from "../components/coin/selectDays/SelectDays";
 import { settingChartData } from "../functions/settingChartData";
 import PriceType from "../components/coin/priceType/PriceType";
-import Footer from "../components/common/footer/Footer"
+import Footer from "../components/common/footer/Footer";
 
 const CoinPage = () => {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [coinData, setCoinData] = useState();
-  const [days, setDays] = useState(365);
+  const [days, setDays] = useState(120);
   const [chartData, setChartData] = useState({});
   const [priceType, setPriceType] = useState("prices");
   useEffect(() => {
@@ -37,7 +37,10 @@ const CoinPage = () => {
       if (prices.length > 0) {
         settingChartData(setChartData, prices);
         setIsLoading(false);
+      } else {
       }
+    } else {
+      console.log(data);
     }
   }
   //   const myTimeout = setTimeout(() => {
