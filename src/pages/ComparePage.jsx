@@ -70,6 +70,10 @@ const ComparePage = () => {
     if (prices1 && prices2) {
       settingChartData(setChartData, prices1, prices2, crypto1, crypto2);
       setIsLoading(false);
+    } else {
+      console.log(isLoading);
+      console.log("error");
+      setModalopen(true);
     }
   }
 
@@ -79,8 +83,14 @@ const ComparePage = () => {
     setPriceType(newType);
     const prices1 = await getCoinPrices(crypto1, days, newType);
     const prices2 = await getCoinPrices(crypto2, days, newType);
-    settingChartData(setChartData, prices1, prices2, crypto1, crypto2);
-    setIsLoading(false);
+    if (prices1 && prices2) {
+      settingChartData(setChartData, prices1, prices2, crypto1, crypto2);
+      setIsLoading(false);
+    } else {
+      console.log(isLoading);
+      console.log("error");
+      setModalopen(true);
+    }
   };
 
   const handleCoinChange = async (event, isCoin2) => {
