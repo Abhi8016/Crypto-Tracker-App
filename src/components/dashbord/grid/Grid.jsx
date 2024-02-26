@@ -54,7 +54,7 @@ const Grid = ({ coin, i }) => {
           </div>
           
           <div className="fav-icon" onClick={handleFav}>
-            {currentObj.id == coin.id ? <StarsIcon style={{color: "var(--green)"}}/> : <StarsOutlinedIcon />}
+            {currentObj.id == coin.id ? <StarsIcon style={{color: "var(--yellow)"}}/> : <StarsOutlinedIcon />}
           </div>
         </div>
         {coin.price_change_percentage_24h > 0 ? (

@@ -8,6 +8,7 @@
   --green: #61c96f;
   --red: #f94141;
   --darkgrey: #1b1b1b;
+  --yellow: rgb(232, 228, 11);
 }
 html {
   height: 100%;
