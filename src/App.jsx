@@ -12,10 +12,10 @@ import { ToastContainer } from "react-toastify";
 import Modal from "./components/common/modalComponent/modal/Modal";
 
 function App() {
-  const [modalOpen, setModalopen] = useState(true);
+  // const [modalOpen, setModalopen] = useState(true);
 
-  const close = () => setModalopen(false);
-  const open = () => setModalopen(true);
+  // const close = () => setModalopen(false);
+  // const open = () => setModalopen(true);
 
   const [mousePosition, setMousePosition] = useState({
     x: 0,
@@ -56,7 +56,7 @@ function App() {
         pauseOnHover={false}
         theme="dark"
       />
-      {modalOpen && (
+      {/* {modalOpen && (
         <Modal
           modalOpen={modalOpen}
           handleClose={close}
@@ -68,7 +68,7 @@ function App() {
             "You can click anywhere outside this window to close it. Thank you for your cooperation."
           }
         />
-      )}
+      )} */}
       <div className="motion-flex">
         <motion.div className="cursor" variants={variants} animate="default" />
         <motion.div
@@ -78,17 +78,15 @@ function App() {
           transition={{ duration: 0.2 }}
         />
       </div>
-      {!modalOpen && (
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/dashboard" element={<DashbordPage />} />
-            <Route path="/coin/:id" element={<CoinPage />} />
-            <Route path="/compare" element={<ComparePage />} />
-            <Route path="/watchlist" element={<WatchlistPage />} />
-          </Routes>
-        </BrowserRouter>
-      )}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/dashboard" element={<DashbordPage />} />
+          <Route path="/coin/:id" element={<CoinPage />} />
+          <Route path="/compare" element={<ComparePage />} />
+          <Route path="/watchlist" element={<WatchlistPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

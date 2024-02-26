@@ -15,6 +15,7 @@ import SelectDays from "../components/coin/selectDays/SelectDays";
 import { settingChartData } from "../functions/settingChartData";
 import PriceType from "../components/coin/priceType/PriceType";
 import Footer from "../components/common/footer/Footer";
+import Modal from "../components/common/modalComponent/modal/Modal";
 
 const CoinPage = () => {
   const { id } = useParams();
@@ -23,6 +24,11 @@ const CoinPage = () => {
   const [days, setDays] = useState(120);
   const [chartData, setChartData] = useState({});
   const [priceType, setPriceType] = useState("prices");
+
+  const [modalOpen, setModalopen] = useState(false);
+
+  const close = () => setModalopen(false);
+
   useEffect(() => {
     if (id) {
       getData();
@@ -40,7 +46,9 @@ const CoinPage = () => {
       } else {
       }
     } else {
-      console.log(data);
+      console.log(isLoading);
+      console.log("error");
+      setModalopen(true);
     }
   }
   //   const myTimeout = setTimeout(() => {
@@ -63,7 +71,8 @@ const CoinPage = () => {
     }
   };
 
-  const handlePriceTypeChange = async (event, newType) => {
+  const handlePriceTypeChange = async (event) => {
+    const newType = event.target.value;
     setIsLoading(true);
     setPriceType(newType);
     const prices = await getCoinPrices(id, days, newType);
@@ -74,28 +83,39 @@ const CoinPage = () => {
   };
 
   return (
-    <div>
-      <Header />
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <>
-          <div className="grey-wrapper">
-            <List coin={coinData} />
-          </div>
-          <div className="grey-wrapper">
-            <SelectDays days={days} handleDaysChange={handleDaysChange} />
-            <PriceType
-              priceType={priceType}
-              handlePriceTypeChange={handlePriceTypeChange}
-            />
-            <LineChart chartData={chartData} priceType={priceType} />
-          </div>
-          <CoinInfo heading={coinData.name} desc={coinData.desc} />
-        </>
+    <>
+      {modalOpen && (
+        <Modal
+          modalOpen={modalOpen}
+          handleClose={close}
+          title={"Error"}
+          text1={"You've exceeded the Rate Limit or something wrong happend"}
+          text2={"Try again after some time."}
+        />
       )}
-      <Footer />
-    </div>
+      <div>
+        <Header />
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            <div className="grey-wrapper">
+              <List coin={coinData} />
+            </div>
+            <div className="grey-wrapper">
+              <SelectDays days={days} handleDaysChange={handleDaysChange} />
+              <PriceType
+                priceType={priceType}
+                handlePriceTypeChange={handlePriceTypeChange}
+              />
+              <LineChart chartData={chartData} priceType={priceType} />
+            </div>
+            <CoinInfo heading={coinData.name} desc={coinData.desc} />
+          </>
+        )}
+        <Footer />
+      </div>
+    </>
   );
 };
 

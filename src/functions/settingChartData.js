@@ -3,11 +3,11 @@ import { convertDate } from "./convertDate";
 export const settingChartData = (setChartData, prices1, prices2, coin1, coin2) => {
   if (prices2) {
     setChartData({
-      labels: prices1.map((price) => convertDate(price[0])),
+      labels: prices1?.map((price) => convertDate(price[0])),
       datasets: [
         {
           label: coin1,
-          data: prices1.map((price) => price[1]),
+          data: prices1?.map((price) => price[1]),
           borderColor: "#3a80e9",
           borderWidth: 2,
           fill: false,
@@ -17,7 +17,7 @@ export const settingChartData = (setChartData, prices1, prices2, coin1, coin2) =
         },
         {
           label: coin2,
-          data: prices2.map((price) => price[1]),
+          data: prices2?.map((price) => price[1]),
           borderColor: "#61c96f",
           borderWidth: 2,
           fill: false,
@@ -29,10 +29,10 @@ export const settingChartData = (setChartData, prices1, prices2, coin1, coin2) =
     });
   } else {
     setChartData({
-      labels: prices1.map((price) => convertDate(price[0])),
+      labels: prices1?.map((price) => convertDate(price[0])),
       datasets: [
         {
-          data: prices1.map((price) => price[1]),
+          data: prices1?.map((price) => price[1]),
           borderColor: "#3a80e9",
           borderWidth: 2,
           fill: true,

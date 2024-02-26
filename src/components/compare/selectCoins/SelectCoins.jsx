@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { get100Coins } from "../../../functions/get100Coins";
 import { MenuItem, Select } from "@mui/material";
 import "./styles.css";
-const SelectCoins = ({ crypto1, crypto2, handleCoinChange }) => {
-  const [allCoins, setAllCoins] = useState([]);
+const SelectCoins = ({ crypto1, crypto2, handleCoinChange, allCoins}) => {
+  // const [allCoins, setAllCoins] = useState([]);
   const styles = {
     height: "2.5rem",
     color: "var(--white)",
@@ -20,13 +20,13 @@ const SelectCoins = ({ crypto1, crypto2, handleCoinChange }) => {
     },
   };
 
-  useEffect(() => {
-    getData();
-  }, []);
-  const getData = async () => {
-    const myCoin = await get100Coins();
-    setAllCoins(myCoin);
-  };
+  // useEffect(() => {
+  //   getData();
+  // }, []);
+  // const getData = async () => {
+  //   const myCoin = await get100Coins();
+  //   setAllCoins(myCoin);
+  // };
   return (
     <div className="coins-flex">
       {/* <p>Crypto 1</p> */}

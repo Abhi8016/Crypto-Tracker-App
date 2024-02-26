@@ -28,7 +28,9 @@ export default function SelectDays({ days, handleDaysChange, noPTag }) {
         labelId="demo-simple-select-label"
         id="demo-simple-select"
         value={days}
-        onChange={handleDaysChange}
+        onChange={(e) => {
+          handleDaysChange(e);
+        }}
       >
         <MenuItem value={7}>7 Days</MenuItem>
         <MenuItem value={30}>30 Days</MenuItem>
